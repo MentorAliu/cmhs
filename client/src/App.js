@@ -1,10 +1,11 @@
 import React from "react";
-import Login from "./components/LandingPage/Login";
+
+import RenderLandingPage from "./components/LandingPage/RenderLandingPage";
 
 const App = () => {
   return (
     <>
-      <Login />
+      <RenderLandingPage />
     </>
   );
 };

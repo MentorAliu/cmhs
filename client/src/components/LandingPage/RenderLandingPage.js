@@ -3,12 +3,14 @@ import Login from "./Login";
 import Register from "./Register";
 
 const RenderLandingPage = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
-  const onRegisterClick = ({registerData}) => {
-    console.log(registerData);
+  const onRegisterClick = (registerCick) => {
+    setOpen(() => registerCick);
   };
-  return <>{open ? <Login fetchRegister={onRegisterClick} /> : <Register />}</>;
+  return (
+    <>{open ? <Login onRegisterClick={onRegisterClick} /> : <Register />}</>
+  );
 };
 
 export default RenderLandingPage;

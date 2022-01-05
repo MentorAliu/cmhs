@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
 
-const Login = ({ fetchRegister }) => {
-  const [register, setRegister] = useState(true);
+const Login = ({ onRegisterClick }) => {
+  const [register, setRegister] = useState(false);
   const registerHandler = () => {
-    setRegister(!register);
-    fetchRegister(register);
+    setRegister(false);
+    onRegisterClick(register);
   };
 
   return (
