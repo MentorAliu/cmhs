@@ -1,25 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import { carDetails } from "../../../api/carDetails/cars";
 
 const NewCarForm = () => {
+  const [newCar, setNewCar] = useState({
+    manufacturer: "",
+    model: "",
+    table: "",
+    mileage: "",
+    carDetails: "",
+    chasis: "",
+    countryOrigin: "",
+    carColor: "",
+    carState: "",
+  });
+
+  const onChangeHandler = (event) => {
+    const changeValue = event.target.value;
+    setNewCar((prevValue) => console.log(prevValue));
+  };
+
   return (
     <>
       <div className="mt-5 md:mt-0 md:col-span-2">
-        <form action="#" method="POST">
+        <form onSubmit={(event) => event.preventDefault()}>
           <div className="shadow overflow-hidden sm:rounded-md">
-            <div className="px-4 py-5 bg-white sm:p-6">
-              <div className="grid grid-cols-6 gap-6">
+            <div className="px-4 py-5 bg-slate-700 sm:p-6">
+              <div className="grid grid-cols-6 gap-5">
                 <div className="col-span-6 sm:col-span-3">
                   <label
-                    htmlFor="first-name"
-                    className="block text-sm font-medium text-gray-700"
+                    htmlFor="manufacturer"
+                    className="block text-sm font-medium text-white"
                   >
-                    First name
+                    Car Manufacturer
+                  </label>
+                  <select
+                    id="manufacturer"
+                    value={newCar.manufacturer}
+                    onChange={onChangeHandler}
+                    name="manufacturer"
+                    className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  >
+                    {carDetails.map((car) => (
+                      <option key={car.name}>{car.name}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="col-span-6 sm:col-span-3">
+                  <label
+                    htmlFor="model"
+                    className="block text-sm font-medium text-white"
+                  >
+                    Model
                   </label>
                   <input
                     type="text"
-                    name="first-name"
-                    id="first-name"
+                    name="model"
+                    value={newCar.model}
+                    onChange={onChangeHandler}
+                    id="model"
                     autoComplete="given-name"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
@@ -27,117 +65,122 @@ const NewCarForm = () => {
 
                 <div className="col-span-6 sm:col-span-3">
                   <label
-                    htmlFor="last-name"
-                    className="block text-sm font-medium text-gray-700"
+                    htmlFor="table"
+                    className="block text-sm font-medium text-white"
                   >
-                    Last name
+                    Table Details
                   </label>
                   <input
                     type="text"
-                    name="last-name"
-                    id="last-name"
-                    autoComplete="family-name"
-                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                  />
-                </div>
-
-                <div className="col-span-6 sm:col-span-4">
-                  <label
-                    htmlFor="email-address"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Email address
-                  </label>
-                  <input
-                    type="text"
-                    name="email-address"
-                    id="email-address"
-                    autoComplete="email"
+                    value={newCar.table}
+                    onChange={onChangeHandler}
+                    name="table"
+                    id="table"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
                 </div>
 
                 <div className="col-span-6 sm:col-span-3">
                   <label
-                    htmlFor="country"
-                    className="block text-sm font-medium text-gray-700"
+                    htmlFor="mileage"
+                    className="block text-sm font-medium text-white"
                   >
-                    Car Manufacturer
+                    Car Mileage / KM
                   </label>
-                  <select
-                    id="country"
-                    name="country"
-                    autoComplete="country-name"
-                    className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  >
-                    {carDetails.map((car) => (
-                      <option>{car.name}</option>
-                    ))}
-                  </select>
+                  <input
+                    type="number"
+                    value={newCar.mileage}
+                    onChange={onChangeHandler}
+                    name="mileage"
+                    id="mileage"
+                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  />
                 </div>
 
-                <div className="col-span-6">
+                <div className="col-span-3">
                   <label
-                    htmlFor="street-address"
-                    className="block text-sm font-medium text-gray-700"
+                    htmlFor="carDetails"
+                    className="block text-sm font-medium text-white"
                   >
-                    Street address
+                    Car Details
                   </label>
                   <input
                     type="text"
-                    name="street-address"
-                    id="street-address"
-                    autoComplete="street-address"
+                    value={newCar.carDetails}
+                    onChange={onChangeHandler}
+                    name="carDetails"
+                    id="carDetails"
+                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  />
+                </div>
+                <div className="col-span-3">
+                  <label
+                    htmlFor="chasis"
+                    className="block text-sm font-medium text-white"
+                  >
+                    Chasis Number
+                  </label>
+                  <input
+                    type="text"
+                    value={newCar.chasis}
+                    onChange={onChangeHandler}
+                    name="chasis"
+                    id="chasis"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
                 </div>
 
                 <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                   <label
-                    htmlFor="city"
-                    className="block text-sm font-medium text-gray-700"
+                    htmlFor="countryOrigin"
+                    className="block text-sm font-medium text-white"
                   >
-                    City
+                    Country of Origin
                   </label>
                   <input
                     type="text"
-                    name="city"
-                    id="city"
-                    autoComplete="address-level2"
+                    value={newCar.countryOrigin}
+                    onChange={onChangeHandler}
+                    name="countryOrigin"
+                    id="countryOrigin"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
                 </div>
 
                 <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                   <label
-                    htmlFor="region"
-                    className="block text-sm font-medium text-gray-700"
+                    htmlFor="carColor"
+                    className="block text-sm font-medium text-white"
                   >
-                    State / Province
+                    Car Color
                   </label>
                   <input
                     type="text"
-                    name="region"
-                    id="region"
-                    autoComplete="address-level1"
+                    value={newCar.carColor}
+                    onChange={onChangeHandler}
+                    name="carColor"
+                    id="carColor"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
                 </div>
 
                 <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                   <label
-                    htmlFor="postal-code"
-                    className="block text-sm font-medium text-gray-700"
+                    htmlFor="carState"
+                    className="block text-sm font-medium text-white"
                   >
-                    ZIP / Postal code
+                    Car State
                   </label>
-                  <input
-                    type="text"
-                    name="postal-code"
-                    id="postal-code"
-                    autoComplete="postal-code"
-                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                  />
+                  <select
+                    id="carState"
+                    value={newCar.carState}
+                    onChange={onChangeHandler}
+                    name="carState"
+                    className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  >
+                    <option>New</option>
+                    <option>Used</option>
+                  </select>
                 </div>
               </div>
             </div>
