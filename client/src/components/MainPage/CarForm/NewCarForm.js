@@ -1,28 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, Fragment, useRef } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+
 import { carDetails } from "../../../api/carDetails/cars";
+import { useForm } from "react-hook-form";
 
 const NewCarForm = () => {
-  const [newCar, setNewCar] = useState({
-    manufacturer: "",
-    model: "",
-    table: "",
-    mileage: "",
-    carDetails: "",
-    chasis: "",
-    countryOrigin: "",
-    carColor: "",
-    carState: "",
-  });
+  const { register, handleSubmit, reset } = useForm();
 
-  const onChangeHandler = (event) => {
-    const changeValue = event.target.value;
-    setNewCar((prevValue) => console.log(prevValue));
-  };
+  const [openModal, setOpenModal] = useState(false);
+
+  const cancelButtonRef = useRef(null);
+
+  function onSubmit(data, event) {
+    event.preventDefault();
+    console.log(data);
+    reset();
+    setOpenModal(!openModal);
+  }
 
   return (
     <>
       <div className="mt-5 md:mt-0 md:col-span-2">
-        <form onSubmit={(event) => event.preventDefault()}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="shadow overflow-hidden sm:rounded-md">
             <div className="px-4 py-5 bg-slate-700 sm:p-6">
               <div className="grid grid-cols-6 gap-5">
@@ -35,8 +34,7 @@ const NewCarForm = () => {
                   </label>
                   <select
                     id="manufacturer"
-                    value={newCar.manufacturer}
-                    onChange={onChangeHandler}
+                    {...register("manufacturer")}
                     name="manufacturer"
                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   >
@@ -55,8 +53,7 @@ const NewCarForm = () => {
                   <input
                     type="text"
                     name="model"
-                    value={newCar.model}
-                    onChange={onChangeHandler}
+                    {...register("model")}
                     id="model"
                     autoComplete="given-name"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -72,8 +69,7 @@ const NewCarForm = () => {
                   </label>
                   <input
                     type="text"
-                    value={newCar.table}
-                    onChange={onChangeHandler}
+                    {...register("table")}
                     name="table"
                     id="table"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -89,8 +85,7 @@ const NewCarForm = () => {
                   </label>
                   <input
                     type="number"
-                    value={newCar.mileage}
-                    onChange={onChangeHandler}
+                    {...register("mileage")}
                     name="mileage"
                     id="mileage"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -106,8 +101,7 @@ const NewCarForm = () => {
                   </label>
                   <input
                     type="text"
-                    value={newCar.carDetails}
-                    onChange={onChangeHandler}
+                    {...register("carDetails")}
                     name="carDetails"
                     id="carDetails"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -122,8 +116,7 @@ const NewCarForm = () => {
                   </label>
                   <input
                     type="text"
-                    value={newCar.chasis}
-                    onChange={onChangeHandler}
+                    {...register("chasis")}
                     name="chasis"
                     id="chasis"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -139,8 +132,7 @@ const NewCarForm = () => {
                   </label>
                   <input
                     type="text"
-                    value={newCar.countryOrigin}
-                    onChange={onChangeHandler}
+                    {...register("countryOrigin")}
                     name="countryOrigin"
                     id="countryOrigin"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -156,8 +148,7 @@ const NewCarForm = () => {
                   </label>
                   <input
                     type="text"
-                    value={newCar.carColor}
-                    onChange={onChangeHandler}
+                    {...register("carColor")}
                     name="carColor"
                     id="carColor"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -173,8 +164,7 @@ const NewCarForm = () => {
                   </label>
                   <select
                     id="carState"
-                    value={newCar.carState}
-                    onChange={onChangeHandler}
+                    {...register("carState")}
                     name="carState"
                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   >
@@ -195,6 +185,69 @@ const NewCarForm = () => {
           </div>
         </form>
       </div>
+      <Transition.Root show={openModal} as={Fragment}>
+        <Dialog
+          as="div"
+          className="fixed z-10 inset-0 overflow-y-auto"
+          initialFocus={cancelButtonRef}
+          onClose={setOpenModal}
+        >
+          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+            </Transition.Child>
+
+            {/* This element is to trick the browser into centering the modal contents. */}
+            <span
+              className="hidden sm:inline-block sm:align-middle sm:h-screen"
+              aria-hidden="true"
+            >
+              &#8203;
+            </span>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              enterTo="opacity-100 translate-y-0 sm:scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+              leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            >
+              <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                  <div className="sm:flex sm:items-start">
+                    <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-center">
+                      <Dialog.Title
+                        as="h3"
+                        className="text-lg leading-6 font-medium text-gray-900"
+                      >
+                        New Car Added Successfully
+                      </Dialog.Title>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                  <button
+                    type="button"
+                    className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                    onClick={() => setOpenModal(false)}
+                  >
+                    OK
+                  </button>
+                </div>
+              </div>
+            </Transition.Child>
+          </div>
+        </Dialog>
+      </Transition.Root>
     </>
   );
 };
