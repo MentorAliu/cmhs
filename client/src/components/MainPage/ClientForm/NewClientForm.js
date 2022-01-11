@@ -1,10 +1,9 @@
 import React, { useState, Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
-import { carDetails } from "../../../api/carDetails/cars";
 import { useForm } from "react-hook-form";
 
-const NewCarForm = ({ getCarData }) => {
+const NewClientForm = ({ getCustomerData }) => {
   const { register, handleSubmit, reset } = useForm();
 
   const [openModal, setOpenModal] = useState(false);
@@ -13,9 +12,10 @@ const NewCarForm = ({ getCarData }) => {
 
   function onSubmit(data, event) {
     event.preventDefault();
-    getCarData(data);
+    getCustomerData(data);
     reset();
     setOpenModal(!openModal);
+    console.log(data);
   }
 
   return (
@@ -27,34 +27,16 @@ const NewCarForm = ({ getCarData }) => {
               <div className="grid grid-cols-6 gap-5">
                 <div className="col-span-6 sm:col-span-3">
                   <label
-                    htmlFor="manufacturer"
+                    htmlFor="mbiemri"
                     className="block text-sm font-medium text-white"
                   >
-                    Car Manufacturer
-                  </label>
-                  <select
-                    id="manufacturer"
-                    {...register("manufacturer")}
-                    name="manufacturer"
-                    className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  >
-                    {carDetails.map((car) => (
-                      <option key={car.name}>{car.name}</option>
-                    ))}
-                  </select>
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                  <label
-                    htmlFor="model"
-                    className="block text-sm font-medium text-white"
-                  >
-                    Model
+                    Mbiemri
                   </label>
                   <input
                     type="text"
-                    name="model"
-                    {...register("model", { required: true })}
-                    id="model"
+                    name="mbiemri"
+                    {...register("mbiemri", { required: true })}
+                    id="mbiemri"
                     autoComplete="given-name"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
@@ -62,63 +44,63 @@ const NewCarForm = ({ getCarData }) => {
 
                 <div className="col-span-6 sm:col-span-3">
                   <label
-                    htmlFor="table"
+                    htmlFor="emri"
                     className="block text-sm font-medium text-white"
                   >
-                    Table Details
+                    Emri
                   </label>
                   <input
                     type="text"
-                    {...register("table")}
-                    name="table"
-                    id="table"
+                    {...register("emri")}
+                    name="emri"
+                    id="emri"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
                 </div>
 
                 <div className="col-span-6 sm:col-span-3">
                   <label
-                    htmlFor="mileage"
+                    htmlFor="bornDate"
                     className="block text-sm font-medium text-white"
                   >
-                    Car Mileage / KM
+                    Born Date
                   </label>
                   <input
-                    type="number"
-                    {...register("mileage")}
-                    name="mileage"
-                    id="mileage"
+                    type="date"
+                    {...register("bornDate")}
+                    name="bornDate"
+                    id="bornDate"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
                 </div>
 
                 <div className="col-span-3">
                   <label
-                    htmlFor="carDetails"
+                    htmlFor="nationality"
                     className="block text-sm font-medium text-white"
                   >
-                    Car Details
+                    Nationality
                   </label>
                   <input
                     type="text"
-                    {...register("carDetails")}
-                    name="carDetails"
-                    id="carDetails"
+                    {...register("nationality")}
+                    name="nationality"
+                    id="nationality"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
                 </div>
                 <div className="col-span-3">
                   <label
-                    htmlFor="chasis"
+                    htmlFor="expDate"
                     className="block text-sm font-medium text-white"
                   >
-                    Chasis Number
+                    Expiry Date
                   </label>
                   <input
-                    type="text"
-                    {...register("chasis")}
-                    name="chasis"
-                    id="chasis"
+                    type="date"
+                    {...register("expDate")}
+                    name="expDate"
+                    id="expDate"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
                 </div>
@@ -128,49 +110,95 @@ const NewCarForm = ({ getCarData }) => {
                     htmlFor="countryOrigin"
                     className="block text-sm font-medium text-white"
                   >
-                    Country of Origin
+                    Place of Birth
                   </label>
                   <input
                     type="text"
-                    {...register("countryOrigin")}
-                    name="countryOrigin"
-                    id="countryOrigin"
+                    {...register("birthPlace")}
+                    name="birthPlace"
+                    id="birthPlace"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
                 </div>
 
                 <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                   <label
-                    htmlFor="carColor"
+                    htmlFor="gender"
                     className="block text-sm font-medium text-white"
                   >
-                    Car Color
-                  </label>
-                  <input
-                    type="text"
-                    {...register("carColor")}
-                    name="carColor"
-                    id="carColor"
-                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                  />
-                </div>
-
-                <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                  <label
-                    htmlFor="carState"
-                    className="block text-sm font-medium text-white"
-                  >
-                    Car State
+                    Gender
                   </label>
                   <select
-                    id="carState"
-                    {...register("carState")}
+                    id="gender"
+                    {...register("gender")}
                     name="carState"
                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   >
-                    <option>New</option>
-                    <option>Used</option>
+                    <option>Male</option>
+                    <option>Female</option>
                   </select>
+                </div>
+                <div className="col-span-6 sm:col-span-6 lg:col-span-2">
+                  <label
+                    htmlFor="personalNumber"
+                    className="block text-sm font-medium text-white"
+                  >
+                    Personal Number
+                  </label>
+                  <input
+                    type="number"
+                    {...register("personalNumber")}
+                    name="personalNumber"
+                    id="personalNumber"
+                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  />
+                </div>
+                <div className="col-span-6 sm:col-span-6 lg:col-span-2">
+                  <label
+                    htmlFor="idNumber"
+                    className="block text-sm font-medium text-white"
+                  >
+                    ID Number
+                  </label>
+                  <input
+                    type="number"
+                    {...register("idNumber")}
+                    name="idNumber"
+                    id="idNumber"
+                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  />
+                </div>
+                <div className="col-span-6 sm:col-span-6 lg:col-span-2">
+                  <label
+                    htmlFor="phoneNumber"
+                    className="block text-sm font-medium text-white"
+                  >
+                    Phone Number
+                  </label>
+                  <input
+                    placeholder="044/049-111-111"
+                    type="number"
+                    {...register("phoneNumber")}
+                    name="phoneNumber"
+                    id="phoneNumber"
+                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  />
+                </div>
+                <div className="col-span-6 sm:col-span-6 lg:col-span-2">
+                  <label
+                    htmlFor="phoneNumber"
+                    className="block text-sm font-medium text-white"
+                  >
+                    Attach ID File
+                  </label>
+                  <input
+                    placeholder="Attach File"
+                    type="file"
+                    {...register("fileAttach")}
+                    name="fileAttach"
+                    id="fileAttach"
+                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  />
                 </div>
               </div>
             </div>
@@ -229,7 +257,7 @@ const NewCarForm = ({ getCarData }) => {
                         as="h3"
                         className="text-lg leading-6 font-medium text-gray-900"
                       >
-                        New Car Added Successfully
+                        New Customer Added Successfully
                       </Dialog.Title>
                     </div>
                   </div>
@@ -252,4 +280,4 @@ const NewCarForm = ({ getCarData }) => {
   );
 };
 
-export default NewCarForm;
+export default NewClientForm;
