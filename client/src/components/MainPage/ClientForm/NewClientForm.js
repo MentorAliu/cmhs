@@ -15,7 +15,6 @@ const NewClientForm = ({ getCustomerData }) => {
     getCustomerData(data);
     reset();
     setOpenModal(!openModal);
-    console.log(data);
   }
 
   return (

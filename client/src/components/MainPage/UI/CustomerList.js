@@ -1,16 +1,30 @@
 import Pagination from "./Pagination";
 import CustomerDescriptionList from "../ClientForm/CustomerDescriptionList";
-import { useState } from "react";
+import React, { useState } from "react";
+import faker from "faker";
 
 /* This example requires Tailwind CSS v2.0+ */
 
 const CustomerList = ({ customerData }) => {
   const [showDescList, setShowDescList] = useState(false);
+
   const editProfile = () => {};
+
   const viewProfile = (event) => {
     event.preventDefault();
     setShowDescList(!showDescList);
   };
+
+  const printFaker = () => {
+    let fakerList = [];
+
+    for (let i = 0; i < 10; i++) {
+      fakerList.push({ fakerName: faker.name.findName() });
+    }
+    return fakerList;
+  };
+
+  const fakerData = printFaker();
 
   return (
     <div className="flex flex-col">
@@ -51,7 +65,7 @@ const CustomerList = ({ customerData }) => {
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {customerData.map((person) => (
-                  <tr key={person.personalNumber}>
+                  <tr key={person.idNumber}>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <div className="ml-4">
@@ -103,8 +117,13 @@ const CustomerList = ({ customerData }) => {
           </div>
         </div>
       </div>
-
-      {showDescList && <CustomerDescriptionList customerData={customerData} />}
+      <Pagination />
+      {showDescList && (
+        <CustomerDescriptionList
+          customerData={customerData}
+          showDescList={showDescList}
+        />
+      )}
     </div>
   );
 };
