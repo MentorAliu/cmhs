@@ -22,7 +22,7 @@ const NewCarForm = ({ getCarData }) => {
 
   return (
     <BodyHolder>
-        <HeaderHolder>Add New Car</HeaderHolder>
+      <HeaderHolder>Add New Car</HeaderHolder>
       <div className="mt-5 md:mt-0 md:col-span-2">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="shadow overflow-hidden sm:rounded-md">
@@ -160,19 +160,21 @@ const NewCarForm = ({ getCarData }) => {
 
                 <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                   <label
-                    htmlFor="carState"
+                    htmlFor="carStatus"
                     className="block text-sm font-medium text-white"
                   >
-                    Car State
+                    Car Status
                   </label>
                   <select
-                    id="carState"
-                    {...register("carState")}
+                    id="carStatus"
+                    {...register("carStatus")}
                     name="carState"
                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   >
-                    <option>New</option>
-                    <option>Used</option>
+                    <option>Active</option>
+                    <option>Passive</option>
+                    <option>Defect</option>
+
                   </select>
                 </div>
               </div>

@@ -20,11 +20,11 @@ const DashBoard = () => {
   };
   return (
     <>
-      {/* <NewCarForm getCarData={fetchCarData} /> */}
-      <NewClientForm getCustomerData={fetchCustomerData} />
+      <NewCarForm getCarData={fetchCarData} />
+      {/* <NewClientForm getCustomerData={fetchCustomerData} /> */}
 
-      {/* <CarList carData={carData} /> */}
-      <CustomerList customerData={customerData} />
+      <CarList carData={carData} />
+      {/* <CustomerList customerData={customerData} /> */}
     </>
   );
 };
