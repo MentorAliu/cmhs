@@ -1,7 +1,8 @@
 import React, { useState, Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-
+import BodyHolder from "../UI/BodyHolder";
 import { useForm } from "react-hook-form";
+import HeaderHolder from "../UI/HeaderHolder";
 
 const NewClientForm = ({ getCustomerData }) => {
   const { register, handleSubmit, reset } = useForm();
@@ -18,7 +19,8 @@ const NewClientForm = ({ getCustomerData }) => {
   }
 
   return (
-    <>
+    <BodyHolder>
+      <HeaderHolder>Add New Customer</HeaderHolder>
       <div className="mt-5 md:mt-0 md:col-span-2">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="shadow overflow-hidden sm:rounded-md">
@@ -275,7 +277,7 @@ const NewClientForm = ({ getCustomerData }) => {
           </div>
         </Dialog>
       </Transition.Root>
-    </>
+    </BodyHolder>
   );
 };
 

@@ -3,6 +3,8 @@ import { Dialog, Transition } from "@headlessui/react";
 
 import { carDetails } from "../../../api/carDetails/cars";
 import { useForm } from "react-hook-form";
+import BodyHolder from "../UI/BodyHolder";
+import HeaderHolder from "../UI/HeaderHolder";
 
 const NewCarForm = ({ getCarData }) => {
   const { register, handleSubmit, reset } = useForm();
@@ -19,7 +21,8 @@ const NewCarForm = ({ getCarData }) => {
   }
 
   return (
-    <>
+    <BodyHolder>
+        <HeaderHolder>Add New Car</HeaderHolder>
       <div className="mt-5 md:mt-0 md:col-span-2">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="shadow overflow-hidden sm:rounded-md">
@@ -248,7 +251,7 @@ const NewCarForm = ({ getCarData }) => {
           </div>
         </Dialog>
       </Transition.Root>
-    </>
+    </BodyHolder>
   );
 };
 

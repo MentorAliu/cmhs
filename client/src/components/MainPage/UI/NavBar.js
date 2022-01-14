@@ -2,12 +2,14 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Customers", href: "#", current: false },
-  { name: "Car List", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
+  { name: "Dashboard", href: "/", current: false },
+  { name: "Add Car", href: "/addcar", current: false },
+  { name: "Car List", href: "/carlist", current: false },
+  { name: "Add Customer", href: "/addcustomer", current: false },
+  { name: "Customer List", href: "/clientlist", current: false },
 ];
 
 function classNames(...classes) {
@@ -48,9 +50,9 @@ const NavBar = () => {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
                           item.current
                             ? "bg-gray-900 text-white"
@@ -60,7 +62,7 @@ const NavBar = () => {
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
