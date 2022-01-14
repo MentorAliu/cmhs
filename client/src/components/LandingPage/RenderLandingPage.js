@@ -8,6 +8,7 @@ const RenderLandingPage = () => {
   const onRegisterClick = (registerCick) => {
     setOpen(() => registerCick);
   };
+
   return (
     <>{open ? <Login onRegisterClick={onRegisterClick} /> : <Register />}</>
   );

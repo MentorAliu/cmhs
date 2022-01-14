@@ -3,8 +3,6 @@ import CustomerDescriptionList from "../ClientForm/CustomerDescriptionList";
 import React, { useState } from "react";
 import faker from "faker";
 
-/* This example requires Tailwind CSS v2.0+ */
-
 const CustomerList = ({ customerData }) => {
   const [showDescList, setShowDescList] = useState(false);
 
