@@ -18,3 +18,10 @@
   flex-direction: column;
   padding: 25px;
 }
+
+.modalContainer .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
