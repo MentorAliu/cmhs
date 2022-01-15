@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
+import { useNavigate } from "react-router-dom";
 
-const Login = ({ onRegisterClick }) => {
-  const [register, setRegister] = useState(false);
-  const registerHandler = () => {
-    setRegister(false);
-    onRegisterClick(register);
-  };
+const Login = () => {
+  const navigateRegister = useNavigate();
 
   return (
     <>
@@ -93,7 +90,7 @@ const Login = ({ onRegisterClick }) => {
           </form>
           <div className="flex justify-center">
             <button
-              onClick={registerHandler}
+              onClick={() => navigateRegister("/register")}
               className="group relative w-1/2 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Register

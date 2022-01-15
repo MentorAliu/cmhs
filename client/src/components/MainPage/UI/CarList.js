@@ -1,8 +1,8 @@
 import React from "react";
-import BodyHolder from "./BodyHolder";
-import DisplayList from "./DisplayList";
-import HeaderHolder from "./HeaderHolder";
-import Pagination from "./Pagination";
+import BodyHolder from "../ReusableComponents/BodyHolder";
+import DisplayList from "../ReusableComponents/DisplayList";
+import HeaderHolder from "../ReusableComponents/HeaderHolder";
+import Pagination from "../ReusableComponents/Pagination";
 const CarList = ({ carData }) => {
   console.log(carData);
   return (

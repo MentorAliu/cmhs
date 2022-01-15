@@ -1,9 +1,7 @@
-import Pagination from "./Pagination";
-import CustomerDescriptionList from "../ClientForm/CustomerDescriptionList";
 import React, { useState } from "react";
-import faker from "faker";
-import HeaderHolder from "./HeaderHolder";
-import BodyHolder from "./BodyHolder";
+import Pagination from "../ReusableComponents/Pagination";
+import HeaderHolder from "../ReusableComponents/HeaderHolder";
+import BodyHolder from "../ReusableComponents/BodyHolder";
 
 const CustomerList = ({ customerData }) => {
   const [showDescList, setShowDescList] = useState(false);
@@ -121,12 +119,6 @@ const CustomerList = ({ customerData }) => {
             </div>
           </div>
           <Pagination />
-          {showDescList && (
-            <CustomerDescriptionList
-              customerData={customerData}
-              showDescList={showDescList}
-            />
-          )}
         </div>
       </BodyHolder>
     </>
