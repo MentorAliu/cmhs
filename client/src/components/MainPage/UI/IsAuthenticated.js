@@ -5,12 +5,14 @@ import DashBoard from "./DashBoard";
 import NewClientForm from "../ClientForm/NewClientForm";
 import CustomerList from "./CustomerList";
 import CarList from "./CarList";
+import NoMatch from "../../../NoMatch";
 
 const IsAuthenticated = () => {
   return (
     <>
       <NavBar />
       <Routes>
+        <Route path="*" element={<NoMatch />} />
         <Route path="/" element={<DashBoard />} />
         <Route path="/addcustomer" element={<NewClientForm />} />
         <Route path="/customerlist" element={<CustomerList />} />
