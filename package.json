@@ -1,5 +1,6 @@
 {
   "name": "client",
+  "homepage": "https://mentoraliu.github.io/cmhs/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
