@@ -1,28 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import Pagination from "../ReusableComponents/Pagination";
 import HeaderHolder from "../ReusableComponents/HeaderHolder";
 import BodyHolder from "../ReusableComponents/BodyHolder";
 
 const CustomerList = ({ customerData }) => {
-  const [showDescList, setShowDescList] = useState(false);
-
-  const editProfile = () => {};
+  const editProfile = (event) => {
+    event.preventDefault();
+  };
 
   const viewProfile = (event) => {
     event.preventDefault();
-    setShowDescList(!showDescList);
   };
-
-  // const printFaker = () => {
-  //   let fakerList = [];
-
-  //   for (let i = 0; i < 10; i++) {
-  //     fakerList.push({ fakerName: faker.name.findName() });
-  //   }
-  //   return fakerList;
-  // };
-
-  // const fakerData = printFaker();
 
   return (
     <>

@@ -4,7 +4,6 @@ import DisplayList from "../ReusableComponents/DisplayList";
 import HeaderHolder from "../ReusableComponents/HeaderHolder";
 import Pagination from "../ReusableComponents/Pagination";
 const CarList = ({ carData }) => {
-  console.log(carData);
   return (
     <>
       <HeaderHolder>Car List</HeaderHolder>

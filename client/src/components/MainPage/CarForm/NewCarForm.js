@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { carDetails } from "../../../api/carDetails/cars";
 import { useForm } from "react-hook-form";
 import BodyHolder from "../ReusableComponents/BodyHolder";
 import HeaderHolder from "../ReusableComponents/HeaderHolder";
 
-const NewCarForm = ({ getCarData }) => {
+const NewCarForm = ({ fetchCarData }) => {
   const { register, handleSubmit, reset } = useForm();
 
   function onSubmit(data, event) {
     event.preventDefault();
-    getCarData(data);
+    fetchCarData(data);
     reset();
   }
 

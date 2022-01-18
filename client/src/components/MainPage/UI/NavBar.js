@@ -9,7 +9,7 @@ const navigation = [
   { name: "Add Car", href: "/addcar", current: false },
   { name: "Car List", href: "/carlist", current: false },
   { name: "Add Customer", href: "/addcustomer", current: false },
-  { name: "Customer List", href: "/clientlist", current: false },
+  { name: "Customer List", href: "/customerlist", current: false },
 ];
 
 function classNames(...classes) {
@@ -101,7 +101,7 @@ const NavBar = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="google.com"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
@@ -114,7 +114,7 @@ const NavBar = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="google.com"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
@@ -127,7 +127,7 @@ const NavBar = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="google.com"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"

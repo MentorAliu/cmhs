@@ -3,12 +3,12 @@ import BodyHolder from "../ReusableComponents/BodyHolder";
 import { useForm } from "react-hook-form";
 import HeaderHolder from "../ReusableComponents/HeaderHolder";
 
-const NewClientForm = ({ getCustomerData }) => {
+const NewClientForm = ({ fetchCustomerData }) => {
   const { register, handleSubmit, reset } = useForm();
 
   function onSubmit(data, event) {
     event.preventDefault();
-    getCustomerData(data);
+    fetchCustomerData(data);
     reset();
   }
 
