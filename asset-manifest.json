@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/cmhs/static/css/main.8b8d93d1.css",
+    "main.js": "/cmhs/static/js/main.873c68a6.js",
+    "index.html": "/cmhs/index.html",
+    "main.8b8d93d1.css.map": "/cmhs/static/css/main.8b8d93d1.css.map",
+    "main.873c68a6.js.map": "/cmhs/static/js/main.873c68a6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8b8d93d1.css",
+    "static/js/main.873c68a6.js"
+  ]
+}
