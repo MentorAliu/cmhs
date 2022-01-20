@@ -2,9 +2,49 @@ import Modal from "../MainPage/ReusableComponents/Modal";
 import { useNavigate } from "react-router-dom";
 import ButtonSubmit from "../MainPage/ReusableComponents/ButtonSubmit";
 import ButtonCancel from "../MainPage/ReusableComponents/ButtonCancel";
+import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
-const Register = () => {
+const Register = ({ history }) => {
   const navigateLogin = useNavigate();
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm();
+  useEffect(() => {
+    if (localStorage.getItem("authToken")) {
+      history.push("/");
+    }
+  }, [history]);
+
+  const onSubmit = async (data, event) => {
+    event.preventDefault();
+    const { username, email, password } = data;
+    reset();
+    const config = {
+      header: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const { data } = await axios.post(
+        "/api/auth/register",
+        {
+          username,
+          email,
+          password,
+        },
+        config
+      );
+      localStorage.setItem("authToken", data.token);
+      history.push("/");
+    } catch (error) {}
+  };
 
   return (
     <Modal>
@@ -12,7 +52,11 @@ const Register = () => {
         Sign Up
       </h2>
 
-      <form className="mt-8 space-y-6" action="#" method="POST">
+      <form
+        className="mt-8 space-y-6"
+        method="POST"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <input type="hidden" name="remember" defaultValue="true" />
         <div className="rounded-md shadow-sm -space-y-px">
           <div>
@@ -27,6 +71,7 @@ const Register = () => {
               required
               className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               placeholder="Username"
+              {...register("username")}
             />
           </div>
           <div>
@@ -41,6 +86,7 @@ const Register = () => {
               required
               className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               placeholder="Email address"
+              {...register("email")}
             />
           </div>
           <div>
@@ -55,6 +101,7 @@ const Register = () => {
               required
               className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               placeholder="Password"
+              {...register("password")}
             />
           </div>
         </div>
