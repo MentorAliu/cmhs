@@ -1,11 +1,11 @@
 import React from "react";
 import Authentication from "./components/LandingPage/Authentication";
-// import IsAuthenticated from "./components/MainPage/UI/IsAuthenticated";
-
+// import Landing from "./components/LandingPage/Landing";
 
 const App = () => {
   return (
     <>
+      {/* <Landing /> */}
       <Authentication />
     </>
   );

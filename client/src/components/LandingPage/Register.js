@@ -2,11 +2,10 @@ import Modal from "../MainPage/ReusableComponents/Modal";
 import { useNavigate } from "react-router-dom";
 import ButtonSubmit from "../MainPage/ReusableComponents/ButtonSubmit";
 import ButtonCancel from "../MainPage/ReusableComponents/ButtonCancel";
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 
-const Register = ({ history }) => {
+const Register = ({ getRegisterData }) => {
   const navigateLogin = useNavigate();
 
   const {
@@ -15,35 +14,11 @@ const Register = ({ history }) => {
     handleSubmit,
     reset,
   } = useForm();
-  useEffect(() => {
-    if (localStorage.getItem("authToken")) {
-      history.push("/");
-    }
-  }, [history]);
 
   const onSubmit = async (data, event) => {
     event.preventDefault();
-    const { username, email, password } = data;
+    getRegisterData(data);
     reset();
-    const config = {
-      header: {
-        "Content-Type": "application/json",
-      },
-    };
-
-    try {
-      const { data } = await axios.post(
-        "/api/auth/register",
-        {
-          username,
-          email,
-          password,
-        },
-        config
-      );
-      localStorage.setItem("authToken", data.token);
-      history.push("/");
-    } catch (error) {}
   };
 
   return (

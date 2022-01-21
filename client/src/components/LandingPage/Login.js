@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ButtonSubmit from "../MainPage/ReusableComponents/ButtonSubmit";
 import { useNavigate } from "react-router-dom";
 import ButtonCancel from "../MainPage/ReusableComponents/ButtonCancel";
@@ -6,8 +6,9 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import Modal from "../MainPage/ReusableComponents/Modal";
 
-const Login = ({ history }) => {
+const Login = () => {
   const navigateRegister = useNavigate();
+  const [login, setLogin] = useState({});
 
   const {
     register,
@@ -16,33 +17,10 @@ const Login = ({ history }) => {
     reset,
   } = useForm();
 
-  useEffect(() => {
-    if (localStorage.getItem("authToken")) {
-      history.push("/");
-    }
-  }, [history]);
-
-  const submitHandler = async (data, event) => {
-    const { email, password } = data;
+  const submitHandler = (data, event) => {
     event.preventDefault();
     reset();
-    const config = {
-      header: {
-        "Content-Type": "pplication/json",
-      },
-    };
-    try {
-      const { data } = await axios.post(
-        "/api/auth/login",
-        {
-          email,
-          password,
-        },
-        config
-      );
-      localStorage.setItem("authToken", data.token);
-      history.push("/");
-    } catch (error) {}
+    setLogin(data);
   };
 
   return (

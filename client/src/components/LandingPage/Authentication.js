@@ -1,21 +1,29 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import ForgotPassword from "./ForgotPassword";
-import Login from "./Login";
+import React, { useState } from "react";
+// import Login from "./Login";
 import Register from "./Register";
-import ResetPassword from "./ResetPassword";
+import axios from "axios";
 
-const Authentications = () => {
+const Authentication = () => {
+  const [registerData, setRegisterData] = useState({});
+  axios
+    .post("http://localhost:3001/register", {
+      username: registerData.username,
+      password: registerData.password,
+    })
+    .then((response) => console.log(response));
+
+  const getRegisterData = (data) => {
+    const { username, password } = data;
+    setRegisterData({ username, password });
+    console.log(username, password);
+  };
+
   return (
     <>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgotpassword" element={<ForgotPassword />} />
-        <Route path="/passwordreset/:resetToken" element={<ResetPassword />} />
-      </Routes>
+      <Register getRegisterData={getRegisterData} />
+      {/* <Login /> */}
     </>
   );
 };
 
-export default Authentications;
+export default Authentication;
