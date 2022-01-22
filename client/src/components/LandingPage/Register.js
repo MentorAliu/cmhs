@@ -3,23 +3,16 @@ import { useNavigate } from "react-router-dom";
 import ButtonSubmit from "../MainPage/ReusableComponents/ButtonSubmit";
 import ButtonCancel from "../MainPage/ReusableComponents/ButtonCancel";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import axios from "axios";
 
 const Register = () => {
   const navigateLogin = useNavigate();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-    reset,
-  } = useForm();
-
-  const onSubmit = async (data, event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
-    const { username, email, password } = data;
 
     await axios.post("http://localhost:3001/api/register", {
       headers: {
@@ -41,11 +34,7 @@ const Register = () => {
         Sign Up
       </h2>
 
-      <form
-        className="mt-8 space-y-6"
-        method="POST"
-        onSubmit={handleSubmit(onSubmit)}
-      >
+      <form className="mt-8 space-y-6" method="POST" onSubmit={handleSubmit}>
         <input type="hidden" name="remember" defaultValue="true" />
         <div className="rounded-md shadow-sm -space-y-px">
           <div>
@@ -60,7 +49,8 @@ const Register = () => {
               required
               className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               placeholder="Username"
-              {...register("username")}
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
             />
           </div>
           <div>
@@ -75,7 +65,8 @@ const Register = () => {
               required
               className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               placeholder="Email address"
-              {...register("email")}
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
           </div>
           <div>
@@ -90,7 +81,8 @@ const Register = () => {
               required
               className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               placeholder="Password"
-              {...register("password")}
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
             />
           </div>
         </div>
