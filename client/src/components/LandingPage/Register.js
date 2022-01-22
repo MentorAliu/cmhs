@@ -4,8 +4,9 @@ import ButtonSubmit from "../MainPage/ReusableComponents/ButtonSubmit";
 import ButtonCancel from "../MainPage/ReusableComponents/ButtonCancel";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
-const Register = ({ getRegisterData }) => {
+const Register = () => {
   const navigateLogin = useNavigate();
 
   const {
@@ -17,8 +18,21 @@ const Register = ({ getRegisterData }) => {
 
   const onSubmit = async (data, event) => {
     event.preventDefault();
-    getRegisterData(data);
-    reset();
+
+    const { username, email, password } = data;
+
+    await axios.post("http://localhost:3001/api/register", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+        username,
+      }),
+    });
+
+    // reset();
   };
 
   return (
