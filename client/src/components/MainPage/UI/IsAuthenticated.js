@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import NavBar from "./NavBar";
 
+import NavBar from "./NavBar";
 import NewClientForm from "../ClientForm/NewClientForm";
 import CustomerList from "../ClientForm/CustomerList";
 import NewCarForm from "../CarForm/NewCarForm";
@@ -24,21 +23,10 @@ const IsAuthenticated = () => {
   return (
     <>
       <NavBar />
-      <Routes>
-        <Route
-          path="/addcustomer"
-          element={<NewClientForm fetchCustomerData={fetchCustomerData} />}
-        />
-        <Route
-          path="/customerlist"
-          element={<CustomerList customerData={customerData} />}
-        />
-        <Route
-          path="/addcar"
-          element={<NewCarForm fetchCarData={fetchCarData} />}
-        />
-        <Route path="/carlist" element={<CarList carData={carData} />} />
-      </Routes>
+      <NewClientForm fetchCustomerData={fetchCustomerData} />
+      <CustomerList customerData={customerData} />
+      <NewCarForm fetchCarData={fetchCarData} />
+      <CarList carData={carData} />
     </>
   );
 };

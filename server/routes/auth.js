@@ -15,6 +15,7 @@ router.post("/register", async (req, res) => {
       process.env.PASS_KEY
     ).toString(),
   });
+  console.log(req.body);
 
   try {
     const user = await newUser.save();

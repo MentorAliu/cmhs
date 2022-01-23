@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-// import Login from "./Login";
-import Register from "./Register";
-import axios from "axios";
+import React from "react";
+import Landing from "./Landing";
+import Login from "./Login";
 
 const Authentication = () => {
   return (
     <>
-      <Register />
-      {/* <Login /> */}
+      <Landing />
     </>
   );
 };
