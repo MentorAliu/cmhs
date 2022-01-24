@@ -1,11 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
 import ButtonSubmit from "../MainPage/ReusableComponents/ButtonSubmit";
 import React, { useState } from "react";
 import axios from "axios";
+import Link from "../MainPage/ReusableComponents/Link";
 
 const Register = () => {
-  const submitNavigate = useNavigate();
-
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,7 +32,7 @@ const Register = () => {
             <p className="mt-2 text-center text-sm text-gray-600 max-w">
               Already registered?
               <Link
-                to={"/login"}
+                href="/auth/login"
                 className="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               >
                 Sign in
@@ -64,6 +62,7 @@ const Register = () => {
               </label>
               <input
                 type="email"
+                required
                 id="email"
                 className="px-4 py-2 outline-none rounded-md w-full"
                 onChange={(e) => setEmail(e.target.value)}

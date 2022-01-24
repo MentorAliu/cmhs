@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import ButtonSubmit from "../MainPage/ReusableComponents/ButtonSubmit";
-import { Link, useNavigate } from "react-router-dom";
+import Link from "../MainPage/ReusableComponents/Link";
+import axios from "axios";
 
 const Login = () => {
-  const submitNavigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
-    submitNavigate("/");
+    const response = await axios.post("http://127.0.0.1:8800/api/auth/login", {
+      email,
+      password,
+    });
+    console.log(response);
   };
 
   return (
@@ -20,10 +24,10 @@ const Login = () => {
             <h1 className="text-center text-2xl font-semibold text-gray-600">
               Login
             </h1>
-            <p class="mt-2 text-center text-sm text-gray-600 max-w">
+            <p className="mt-2 text-center text-sm text-gray-600 max-w">
               <Link
-                to={"/register"}
-                class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                href="/auth/register"
+                className="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               >
                 Register
               </Link>
@@ -60,7 +64,12 @@ const Login = () => {
             </div>
           </div>
           <div className="mt-4 flex justify-around content-center align">
-            <ButtonSubmit>Login</ButtonSubmit>
+            <Link
+              href="../home"
+              className="text-white bg-blue-600 hover:bg-blue-500 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5  focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600"
+            >
+              Login
+            </Link>
           </div>
         </div>
       </form>

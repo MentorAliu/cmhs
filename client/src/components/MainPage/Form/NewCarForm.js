@@ -4,6 +4,7 @@ import { carDetails } from "../../../api/carDetails/cars";
 import { useForm } from "react-hook-form";
 import BodyHolder from "../ReusableComponents/BodyHolder";
 import HeaderHolder from "../ReusableComponents/HeaderHolder";
+import ButtonSubmit from "../ReusableComponents/ButtonSubmit";
 
 const NewCarForm = ({ fetchCarData }) => {
   const { register, handleSubmit, reset } = useForm();
@@ -19,13 +20,13 @@ const NewCarForm = ({ fetchCarData }) => {
       <HeaderHolder>Add New Car</HeaderHolder>
       <div className="mt-5 md:mt-0 md:col-span-2">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="shadow overflow-hidden sm:rounded-md">
-            <div className="px-4 py-5 bg-slate-700 sm:p-6">
+          <div className="shadow overflow-hidden rounded-md">
+            <div className="px-4 py-5 bg-gray-100 sm:p-6">
               <div className="grid grid-cols-6 gap-5">
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="manufacturer"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Car Manufacturer
                   </label>
@@ -43,7 +44,7 @@ const NewCarForm = ({ fetchCarData }) => {
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="model"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Model
                   </label>
@@ -60,7 +61,7 @@ const NewCarForm = ({ fetchCarData }) => {
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="table"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700e"
                   >
                     Table Details
                   </label>
@@ -76,7 +77,7 @@ const NewCarForm = ({ fetchCarData }) => {
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="mileage"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Car Mileage / KM
                   </label>
@@ -92,7 +93,7 @@ const NewCarForm = ({ fetchCarData }) => {
                 <div className="col-span-3">
                   <label
                     htmlFor="carDetails"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Car Details
                   </label>
@@ -107,7 +108,7 @@ const NewCarForm = ({ fetchCarData }) => {
                 <div className="col-span-3">
                   <label
                     htmlFor="chasis"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Chasis Number
                   </label>
@@ -123,7 +124,7 @@ const NewCarForm = ({ fetchCarData }) => {
                 <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                   <label
                     htmlFor="countryOrigin"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Country of Origin
                   </label>
@@ -139,7 +140,7 @@ const NewCarForm = ({ fetchCarData }) => {
                 <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                   <label
                     htmlFor="carColor"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Car Color
                   </label>
@@ -155,7 +156,7 @@ const NewCarForm = ({ fetchCarData }) => {
                 <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                   <label
                     htmlFor="carStatus"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Car Status
                   </label>
@@ -173,12 +174,7 @@ const NewCarForm = ({ fetchCarData }) => {
               </div>
             </div>
             <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-              <button
-                type="submit"
-                className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
-                Save
-              </button>
+              <ButtonSubmit>Submit</ButtonSubmit>
             </div>
           </div>
         </form>

@@ -3,17 +3,14 @@ import logo from "./images/logo.png";
 import heroBG from "./images/hero-bg.png";
 import illustrationTab1 from "./images/illustration-features-tab-1.png";
 import illustrationTab2 from "./images/illustration-features-tab-2.png";
-import bookmarkLogoWhite from "./images/logo-bookmark-white.png";
+import Link from "../MainPage/ReusableComponents/Link";
 import logoChrome from "./images/logo-chrome.svg";
 import logoFirefox from "./images/logo-firefox.svg";
 import logoOpera from "./images/logo-opera.svg";
-import { useNavigate } from "react-router-dom";
+
 import "tw-elements";
 
 const Landing = () => {
-  const registerNavigate = useNavigate();
-  const loginNavigate = useNavigate();
-
   return (
     <div className="font-Poppins">
       <header>
@@ -40,22 +37,21 @@ const Landing = () => {
               customers on the go with our easy to use Application
             </p>
             <div className="flex justify-center flex-wrap gap-6">
-              <button
-                type="button"
-                onClick={() => loginNavigate("login")}
+              <Link
+                href="/auth/login"
                 className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
               >
                 Login
-              </button>
+              </Link>
 
-              <button
-                onClick={() => registerNavigate("register")}
+              <Link
+                href="/auth/register"
                 className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:ring-cyan-200 dark:focus:ring-cyan-800"
               >
                 <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                   Get started with CMHS
                 </span>
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -158,18 +154,12 @@ const Landing = () => {
                 Our application has a powerful search filter when you need to
                 know history of a customer on the go
               </p>
-              <button
-                type="button"
-                className="btn btn-purple hover:bg-bookmark-white hover:text-black"
-              >
-                More Info
-              </button>
             </div>
           </div>
 
           <div
             className="
-            hidden
+            
             lg:block
             overflow-hidden
             bg-bookmark-purple
@@ -178,7 +168,7 @@ const Landing = () => {
             h-80
             w-2/4
             -bottom-24
-            -right-36
+            -right-0
           "
           ></div>
         </div>
@@ -196,8 +186,8 @@ const Landing = () => {
         </div>
 
         <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 max-w-screen-lg mt-16">
-          <div claclassNamess="flex flex-col rounded-md shadow-md lg:mb-16">
-            <div clclassNameass="p-6 flex flex-col items-center">
+          <div className="flex flex-col rounded-md shadow-md lg:mb-16">
+            <div className="p-6 flex flex-col items-center">
               <img src={logoChrome} alt="" />
               <h3 className="mt-5 mb-2 text-bookmark-blue text-lg">Chrome</h3>
               <p className="mb-2 text-bookmark-grey font-light">

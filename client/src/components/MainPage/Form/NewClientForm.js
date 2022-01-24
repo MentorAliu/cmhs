@@ -2,6 +2,7 @@ import React from "react";
 import BodyHolder from "../ReusableComponents/BodyHolder";
 import { useForm } from "react-hook-form";
 import HeaderHolder from "../ReusableComponents/HeaderHolder";
+import ButtonSubmit from "../ReusableComponents/ButtonSubmit";
 
 const NewClientForm = ({ fetchCustomerData }) => {
   const { register, handleSubmit, reset } = useForm();
@@ -17,13 +18,13 @@ const NewClientForm = ({ fetchCustomerData }) => {
       <HeaderHolder>Add New Customer</HeaderHolder>
       <div className="mt-5 md:mt-0 md:col-span-2">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="shadow overflow-hidden sm:rounded-md">
-            <div className="px-4 py-5 bg-slate-700 sm:p-6">
+          <div className="shadow overflow-hidden rounded-md">
+            <div className="px-4 py-5 bg-gray-100 sm:p-6">
               <div className="grid grid-cols-6 gap-5">
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="mbiemri"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Mbiemri
                   </label>
@@ -40,7 +41,7 @@ const NewClientForm = ({ fetchCustomerData }) => {
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="emri"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Emri
                   </label>
@@ -56,7 +57,7 @@ const NewClientForm = ({ fetchCustomerData }) => {
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="bornDate"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Born Date
                   </label>
@@ -72,7 +73,7 @@ const NewClientForm = ({ fetchCustomerData }) => {
                 <div className="col-span-3">
                   <label
                     htmlFor="nationality"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Nationality
                   </label>
@@ -87,7 +88,7 @@ const NewClientForm = ({ fetchCustomerData }) => {
                 <div className="col-span-3">
                   <label
                     htmlFor="expDate"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Expiry Date
                   </label>
@@ -103,7 +104,7 @@ const NewClientForm = ({ fetchCustomerData }) => {
                 <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                   <label
                     htmlFor="countryOrigin"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Place of Birth
                   </label>
@@ -119,7 +120,7 @@ const NewClientForm = ({ fetchCustomerData }) => {
                 <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                   <label
                     htmlFor="gender"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Gender
                   </label>
@@ -136,7 +137,7 @@ const NewClientForm = ({ fetchCustomerData }) => {
                 <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                   <label
                     htmlFor="personalNumber"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Personal Number
                   </label>
@@ -151,7 +152,7 @@ const NewClientForm = ({ fetchCustomerData }) => {
                 <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                   <label
                     htmlFor="idNumber"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     ID Number
                   </label>
@@ -166,7 +167,7 @@ const NewClientForm = ({ fetchCustomerData }) => {
                 <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                   <label
                     htmlFor="phoneNumber"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Phone Number
                   </label>
@@ -182,7 +183,7 @@ const NewClientForm = ({ fetchCustomerData }) => {
                 <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                   <label
                     htmlFor="phoneNumber"
-                    className="block text-sm font-medium text-white"
+                    className="block text-sm font-medium text-gray-700"
                   >
                     Attach ID File
                   </label>
@@ -198,12 +199,7 @@ const NewClientForm = ({ fetchCustomerData }) => {
               </div>
             </div>
             <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-              <button
-                type="submit"
-                className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
-                Save
-              </button>
+              <ButtonSubmit>Save</ButtonSubmit>
             </div>
           </div>
         </form>

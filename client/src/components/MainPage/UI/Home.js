@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 
 import NavBar from "./NavBar";
-import NewClientForm from "../ClientForm/NewClientForm";
-import CustomerList from "../ClientForm/CustomerList";
-import NewCarForm from "../CarForm/NewCarForm";
-import CarList from "../CarForm/CarList";
 
-const IsAuthenticated = () => {
+
+const Home = () => {
   const [customerData, setCustomerData] = useState([]);
   const [carData, setCarData] = useState([]);
 
@@ -23,12 +20,8 @@ const IsAuthenticated = () => {
   return (
     <>
       <NavBar />
-      <NewClientForm fetchCustomerData={fetchCustomerData} />
-      <CustomerList customerData={customerData} />
-      <NewCarForm fetchCarData={fetchCarData} />
-      <CarList carData={carData} />
     </>
   );
 };
 
-export default IsAuthenticated;
+export default Home;
