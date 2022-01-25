@@ -3,7 +3,7 @@ import Pagination from "../ReusableComponents/Pagination";
 import HeaderHolder from "../ReusableComponents/HeaderHolder";
 import BodyHolder from "../ReusableComponents/BodyHolder";
 
-const CustomerList = ({ customerData }) => {
+const CustomerList = () => {
   const editProfile = (event) => {
     event.preventDefault();
   };
@@ -53,7 +53,7 @@ const CustomerList = ({ customerData }) => {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
-                    {customerData.map((person) => (
+                    {/* {customerData.map((person) => (
                       <tr key={person.idNumber}>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
@@ -100,7 +100,7 @@ const CustomerList = ({ customerData }) => {
                           </button>
                         </td>
                       </tr>
-                    ))}
+                    ))} */}
                   </tbody>
                 </table>
               </div>

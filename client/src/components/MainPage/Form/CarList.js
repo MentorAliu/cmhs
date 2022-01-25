@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import BodyHolder from "../ReusableComponents/BodyHolder";
 import DisplayList from "../ReusableComponents/DisplayList";
 import HeaderHolder from "../ReusableComponents/HeaderHolder";
 import Pagination from "../ReusableComponents/Pagination";
-const CarList = ({ carData }) => {
+import AppState from "../../../Context/AppState";
+
+const CarList = () => {
+  const value = useContext(AppState);
+  console.log(value);
+
   return (
     <>
       <HeaderHolder>Car List</HeaderHolder>
@@ -45,7 +50,7 @@ const CarList = ({ carData }) => {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
-                    {carData.map((car, index) => (
+                    {/* {carData.map((car, index) => (
                       <tr key={car.chasis}>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
@@ -89,7 +94,7 @@ const CarList = ({ carData }) => {
                           </button>
                         </td>
                       </tr>
-                    ))}
+                    ))} */}
                   </tbody>
                 </DisplayList>
               </div>

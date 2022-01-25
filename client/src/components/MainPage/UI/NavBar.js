@@ -1,7 +1,7 @@
 import React from "react";
-import NewCarForm from "../Form/NewCarForm";
+import Link from "../ReusableComponents/Link";
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <div className="flex flex-row min-h-screen bg-gray-100 text-gray-800">
       <aside className="sidebar w-64 md:shadow bg-blue-600">
@@ -15,16 +15,16 @@ const NavBar = () => {
         <div className="sidebar-content px-4 py-6">
           <ul className="flex flex-col w-full">
             <li className="my-px">
-              <a
-                href="#"
+              <Link
+                href="/home"
                 className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-700 bg-gray-100"
               >
                 <span className="flex items-center justify-center text-lg text-gray-400">
                   <svg
                     fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     className="h-6 w-6"
@@ -33,7 +33,7 @@ const NavBar = () => {
                   </svg>
                 </span>
                 <span className="ml-3">Dashboard</span>
-              </a>
+              </Link>
             </li>
             <li className="my-px">
               <span className="flex font-medium text-sm text-gray-300 px-4 my-4 uppercase">
@@ -41,37 +41,16 @@ const NavBar = () => {
               </span>
             </li>
             <li className="my-px">
-              <a
-                href="#"
+              <Link
+                href="/home/carlist"
                 className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700"
               >
                 <span className="flex items-center justify-center text-lg text-gray-400">
                   <svg
                     fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    className="h-6 w-6"
-                  >
-                    <path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                  </svg>
-                </span>
-                <span className="ml-3">Manager</span>
-              </a>
-            </li>
-            <li className="my-px">
-              <a
-                href="#"
-                class="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700"
-              >
-                <span className="flex items-center justify-center text-lg text-gray-400">
-                  <svg
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     className="h-6 w-6"
@@ -80,19 +59,19 @@ const NavBar = () => {
                   </svg>
                 </span>
                 <span className="ml-3">Car list</span>
-              </a>
+              </Link>
             </li>
             <li className="my-px">
-              <a
-                href="#"
+              <Link
+                href="/home/customerlist"
                 className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700"
               >
                 <span className="flex items-center justify-center text-lg text-gray-400">
                   <svg
                     fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     className="h-6 w-6"
@@ -104,19 +83,19 @@ const NavBar = () => {
                 <span className="flex items-center justify-center text-xs text-red-500 font-semibold bg-red-100 h-6 px-2 rounded-full ml-auto">
                   1k
                 </span>
-              </a>
+              </Link>
             </li>
             <li className="my-px">
-              <a
-                href="#"
+              <Link
+                href="/home/newcar"
                 className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700"
               >
                 <span className="flex items-center justify-center text-lg text-green-400">
                   <svg
                     fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     className="h-6 w-6"
@@ -125,17 +104,17 @@ const NavBar = () => {
                   </svg>
                 </span>
                 <span className="ml-3">Add new Car</span>
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="/home/newcustomer"
                 className="flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:bg-gray-100 hover:text-gray-700"
               >
                 <span className="flex items-center justify-center text-lg text-green-400">
                   <svg
                     fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     className="h-6 w-6"
@@ -144,7 +123,7 @@ const NavBar = () => {
                   </svg>
                 </span>
                 <span className="ml-3">Add new Customer</span>
-              </a>
+              </Link>
             </li>
             <li className="my-px">
               <span className="flex font-medium text-sm text-gray-300 px-4 my-4 uppercase">
@@ -159,9 +138,9 @@ const NavBar = () => {
                 <span className="flex items-center justify-center text-lg text-gray-400">
                   <svg
                     fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     className="h-6 w-6"
@@ -180,9 +159,9 @@ const NavBar = () => {
                 <span className="flex items-center justify-center text-lg text-gray-400">
                   <svg
                     fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     className="h-6 w-6"
@@ -204,9 +183,9 @@ const NavBar = () => {
                 <span className="flex items-center justify-center text-lg text-gray-400">
                   <svg
                     fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     className="h-6 w-6"
@@ -226,9 +205,9 @@ const NavBar = () => {
                 <span className="flex items-center justify-center text-lg text-red-400">
                   <svg
                     fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     className="h-6 w-6"
@@ -249,13 +228,13 @@ const NavBar = () => {
               <div className="hidden md:flex relative">
                 <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                   <svg
-                    className="h-6 w-6"
                     fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    className="h-6 w-6"
                   >
                     <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
@@ -275,13 +254,13 @@ const NavBar = () => {
                   className="flex items-center justify-center h-10 w-10 border-transparent"
                 >
                   <svg
-                    className="h-6 w-6 text-gray-500"
                     fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    className="h-6 w-6 text-gray-500"
                   >
                     <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
@@ -289,10 +268,10 @@ const NavBar = () => {
               </div>
             </form>
             <div className="flex ml-auto">
-              <a href class="flex flex-row items-center">
+              <Link href="/home/user" className="flex flex-row items-center">
                 <img
                   src="https://pbs.twimg.com/profile_images/378800000298815220/b567757616f720812125bfbac395ff54_normal.png"
-                  alt
+                  alt=""
                   className="h-10 w-10 bg-gray-200 border rounded-full"
                 />
                 <span className="flex flex-col ml-2">
@@ -303,7 +282,7 @@ const NavBar = () => {
                     Customer
                   </span>
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </header>
@@ -311,12 +290,12 @@ const NavBar = () => {
           <h1 className="font-bold text-2xl text-gray-700">Dashboard</h1>
 
           <div className="flex flex-col flex-grow bg-white rounded mt-4">
-            <NewCarForm />
+            {props.children}
           </div>
         </div>
         <footer className="footer px-4 py-2">
           <div className="footer-content">
-            <p class="text-sm text-gray-600 text-center">
+            <p className="text-sm text-gray-600 text-center">
               © CMHS 2022. All rights reserved.{" "}
             </p>
           </div>

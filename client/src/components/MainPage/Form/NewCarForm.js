@@ -1,17 +1,18 @@
-import React from "react";
-
+import React, { useContext } from "react";
 import { carDetails } from "../../../api/carDetails/cars";
 import { useForm } from "react-hook-form";
 import BodyHolder from "../ReusableComponents/BodyHolder";
 import HeaderHolder from "../ReusableComponents/HeaderHolder";
 import ButtonSubmit from "../ReusableComponents/ButtonSubmit";
+import AppContext from "../../../Context/Context";
 
-const NewCarForm = ({ fetchCarData }) => {
+const NewCarForm = () => {
+  const { setCarData } = useContext(AppContext);
   const { register, handleSubmit, reset } = useForm();
 
   function onSubmit(data, event) {
     event.preventDefault();
-    fetchCarData(data);
+    setCarData(data);
     reset();
   }
 
